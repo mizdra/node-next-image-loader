@@ -1,12 +1,12 @@
-# node-image-loader
+# @mizdra/node-next-image-loader
 
 The Node.js Loader like next-image-loader
 
 ## Usage
 
 ```console
-$ npm install node-image-loader
-$ node --import node-image-loader index.js
+$ npm install @mizdra/node-next-image-loader
+$ node --import @mizdra/node-next-image-loader index.js
 ```
 
 ```js

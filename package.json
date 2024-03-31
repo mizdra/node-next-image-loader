@@ -1,10 +1,10 @@
 {
-  "name": "node-image-loader",
+  "name": "@mizdra/node-next-image-loader",
   "description": "The Node.js Loader like next-image-loader",
   "version": "0.0.0",
   "type": "module",
   "sideEffects": false,
-  "repository": "https://github.com/mizdra/node-image-loader.git",
+  "repository": "https://github.com/mizdra/@mizdra/node-next-image-loader.git",
   "author": "mizdra <pp.mizdra@gmail.com>",
   "license": "MIT",
   "private": true,
