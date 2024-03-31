@@ -1,6 +1,6 @@
-import I_JS from '../assets/js.png';
 import { deepEqual } from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import I_JS from '../assets/js.png';
 
 /**
  * @param {string} path
