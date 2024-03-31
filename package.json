@@ -48,11 +48,5 @@
     "example-command": "bin/example-command.js"
   },
   "keywords": [],
-  "files": [
-    "bin",
-    "src",
-    "!src/**/*.test.ts",
-    "!src/**/__snapshots__",
-    "dist"
-  ]
+  "files": ["bin", "src", "!src/**/*.test.ts", "!src/**/__snapshots__", "dist"]
 }
