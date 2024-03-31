@@ -16,9 +16,6 @@ This is a guide for contributors.
   git switch main && git pull
   ```
 - ```bash
-  rm -rf dist && npm run build
-  ```
-- ```bash
   npm version <major|minor|patch>
   ```
   - If you want to release a pre-release version, use the following command instead:
