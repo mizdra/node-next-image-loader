@@ -2,9 +2,15 @@ import path from 'node:path';
 
 import sizeOf from 'image-size';
 
-// https://github.com/vercel/next.js/blob/1c5aa7fa09cc5503c621c534fc40065cbd2aefcb/packages/next/src/build/webpack-config.ts#L247
-const imageExts = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif', '.ico', '.bmp', '.svg']);
+/**
+ * @typedef {['.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif', '.ico', '.bmp', '.svg']} ImageExts
+ */
 
+// https://github.com/vercel/next.js/blob/1c5aa7fa09cc5503c621c534fc40065cbd2aefcb/packages/next/src/build/webpack-config.ts#L247
+/** @type {Set<string>} */
+const imageExts = new Set(
+  /** @satisfies {ImageExts} */ ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif', '.ico', '.bmp', '.svg'],
+);
 /**
  * @param {string} url
  * @returns {URL | null}
@@ -16,6 +22,18 @@ function tryParseURL(url) {
     return null;
   }
 }
+
+const mimeTypes = {
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.ico': 'image/x-icon',
+  '.bmp': 'image/bmp',
+  '.svg': 'image/svg+xml',
+};
 
 /** @type {import('node:module').LoadHook} */
 export const load = async (url, context, nextLoad) => {
@@ -38,13 +56,14 @@ export const load = async (url, context, nextLoad) => {
     throw new Error(`Expected source to be a ArrayBuffer or TypedArray, but got ${source}`);
   }
 
-  const { width, height } = sizeOf.default(new Uint8Array(source));
+  const buffer = Buffer.from(source);
+  const { width, height } = sizeOf.default(buffer);
 
   return {
     format: 'module',
     shortCircuit: true,
     source: `export default ${JSON.stringify({
-      src: url, // TODO: encode to base64
+      src: `data:${mimeTypes[/** @type {ImageExts[number]} */ (ext)]};base64,${buffer.toString('base64')}`,
       width,
       height,
     })}`,
