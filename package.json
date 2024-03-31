@@ -19,7 +19,7 @@
     "lint": "run-s -c lint:*",
     "lint:tsc": "tsc",
     "lint:biome": "biome check .",
-    "test": "node --test --import ./src/index.js src/**/*.test.js"
+    "test": "node --test --import ./src/index.js 'src/**/*.test.js'"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
