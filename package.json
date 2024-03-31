@@ -22,7 +22,7 @@
     "lint": "run-s -c lint:*",
     "lint:tsc": "tsc",
     "lint:biome": "biome check .",
-    "test": "vitest"
+    "test": "node --test --import tsx/esm --import ./src/index.ts test/**/*.test.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
@@ -30,9 +30,8 @@
     "@tsconfig/strictest": "^2.0.0",
     "@types/node": "^20.12.2",
     "npm-run-all2": "^6.1.2",
-    "typescript": "^5.0.4",
-    "vitest": "^0.30.1",
-    "vitest-github-actions-reporter": "^0.10.0"
+    "tsx": "^4.7.1",
+    "typescript": "^5.0.4"
   },
   "engines": {
     "node": ">=16.0.0"
