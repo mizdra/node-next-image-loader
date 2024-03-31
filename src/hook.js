@@ -60,9 +60,9 @@ export const load = async (url, context, nextLoad) => {
   const { width, height } = sizeOf.default(buffer);
 
   return {
-    format: 'module',
+    format: 'commonjs',
     shortCircuit: true,
-    source: `export default ${JSON.stringify({
+    source: `module.exports = ${JSON.stringify({
       src: `data:${mimeTypes[/** @type {ImageExts[number]} */ (ext)]};base64,${buffer.toString('base64')}`,
       width,
       height,
