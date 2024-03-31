@@ -1,6 +1,8 @@
 import I_NODE_MASCOT from '../assets/node-mascot.png';
 import { deepEqual } from 'node:assert/strict';
 
+console.log({ I_NODE_MASCOT });
+
 deepEqual(I_NODE_MASCOT, {
   src: 'node-mascot.png',
   height: 400,
