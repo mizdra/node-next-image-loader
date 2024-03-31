@@ -1,10 +1,17 @@
-import I_NODE_MASCOT from '../assets/node-mascot.png';
+import I_JS from '../assets/js.png';
 import { deepEqual } from 'node:assert/strict';
-import { join } from 'node:path';
 import { readFile } from 'node:fs/promises';
 
-deepEqual(I_NODE_MASCOT, {
-  src: `data:image/png;base64,${await readFile(join(import.meta.dirname, '../assets/node-mascot.png'), 'base64')}`,
-  height: 1200,
-  width: 1200,
+/**
+ * @param {string} path
+ * @returns {Promise<string>}
+ */
+async function readAssetAsBase64(path) {
+  return await readFile(new URL(path, import.meta.url).pathname, 'base64');
+}
+
+deepEqual(I_JS, {
+  src: `data:image/png;base64,${await readAssetAsBase64('../assets/js.png')}`,
+  width: 1052,
+  height: 1052,
 });
