@@ -27,7 +27,6 @@
     "@tsconfig/strictest": "^2.0.0",
     "@types/node": "^20.12.2",
     "npm-run-all2": "^6.1.2",
-    "tsx": "^4.7.1",
     "typescript": "^5.0.4"
   },
   "engines": {
