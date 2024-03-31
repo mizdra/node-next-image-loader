@@ -7,7 +7,7 @@
   "repository": "https://github.com/mizdra/@mizdra/node-next-image-loader.git",
   "author": "mizdra <pp.mizdra@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "exports": {
     ".": {
       "import": {
