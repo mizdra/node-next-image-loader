@@ -1,7 +1,7 @@
 {
   "name": "@mizdra/node-next-image-loader",
   "description": "The Node.js Loader like next-image-loader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "sideEffects": false,
   "repository": "https://github.com/mizdra/@mizdra/node-next-image-loader.git",
@@ -37,7 +37,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "keywords": [],
-  "files": ["src", "!src/**/*.test.js"],
+  "files": [
+    "src",
+    "!src/**/*.test.js"
+  ],
   "dependencies": {
     "image-size": "^1.1.1"
   }
