@@ -1,8 +1,8 @@
 import { deepEqual } from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import bunAllGIF from '../assets/burnallgifs.png';
-import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import bunAllGIF from '../assets/burnallgifs.png';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
