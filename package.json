@@ -37,10 +37,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "keywords": [],
-  "files": [
-    "src",
-    "!src/**/*.test.js"
-  ],
+  "files": ["src", "!src/**/*.test.js"],
   "dependencies": {
     "image-size": "^1.1.1"
   }
