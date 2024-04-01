@@ -10,9 +10,9 @@ $ node --import @mizdra/node-next-image-loader index.js
 ```
 
 ```js
-import jsLogo from "./assets/js.png";
+import bunAllGIF from "./assets/burnallgifs.png";
 
-console.log(jsLogo);
+console.log(bunAllGIF);
 // {
 //   src: 'data:image/png;base64,...',
 //   width: 1052,
