@@ -1,6 +1,7 @@
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
-
 import sizeOf from 'image-size';
+import { addHook } from 'pirates';
 import { isImageExtension, mimeTypes, tryParseURL } from './util.js';
 
 /** @type {import('node:module').LoadHook} */
@@ -37,3 +38,19 @@ export const load = async (url, context, nextLoad) => {
     })}`,
   };
 };
+
+export function registerRequireHook() {
+  addHook(
+    (_code, filename) => {
+      const ext = /** @type {keyof typeof mimeTypes} */ (path.extname(filename));
+      const buffer = readFileSync(filename);
+      const { width, height } = sizeOf.default(buffer);
+      return `module.exports = ${JSON.stringify({
+        src: `data:${mimeTypes[ext]};base64,${buffer.toString('base64')}`,
+        width,
+        height,
+      })}`;
+    },
+    { ext: Object.keys(mimeTypes) },
+  );
+}
