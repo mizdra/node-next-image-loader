@@ -1,7 +1,8 @@
 import path from 'node:path';
-
 import sizeOf from 'image-size';
 import { isImageExtension, mimeTypes, tryParseURL } from './util.js';
+import { addHook } from 'pirates';
+import { readFileSync } from 'node:fs';
 
 /** @type {import('node:module').LoadHook} */
 export const load = async (url, context, nextLoad) => {
@@ -37,3 +38,20 @@ export const load = async (url, context, nextLoad) => {
     })}`,
   };
 };
+
+export function registerRequireHook() {
+  addHook(
+    (_code, filename) => {
+      const ext = path.extname(filename);
+      if (!isImageExtension(ext)) throw new Error(`Expected ${filename} to be an image file, but got ${ext}`);
+      const buffer = readFileSync(filename);
+      const { width, height } = sizeOf.default(buffer);
+      return `module.exports = ${JSON.stringify({
+        src: `data:${mimeTypes[ext]};base64,${buffer.toString('base64')}`,
+        width,
+        height,
+      })}`;
+    },
+    { ext: Object.keys(mimeTypes) },
+  );
+}

@@ -39,6 +39,7 @@
   "keywords": [],
   "files": ["src", "!src/**/*.test.js"],
   "dependencies": {
-    "image-size": "^1.1.1"
+    "image-size": "^1.1.1",
+    "pirates": "^4.0.6"
   }
 }
