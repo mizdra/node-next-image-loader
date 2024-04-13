@@ -1,8 +1,8 @@
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import sizeOf from 'image-size';
-import { isImageExtension, mimeTypes, tryParseURL } from './util.js';
 import { addHook } from 'pirates';
-import { readFileSync } from 'node:fs';
+import { isImageExtension, mimeTypes, tryParseURL } from './util.js';
 
 /** @type {import('node:module').LoadHook} */
 export const load = async (url, context, nextLoad) => {

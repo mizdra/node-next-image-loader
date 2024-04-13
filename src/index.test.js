@@ -1,9 +1,9 @@
 import { deepEqual } from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { dirname, join } from 'node:path';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 import burnAllGIF from '../assets/burnallgifs.png';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
