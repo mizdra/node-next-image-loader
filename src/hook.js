@@ -42,8 +42,7 @@ export const load = async (url, context, nextLoad) => {
 export function registerRequireHook() {
   addHook(
     (_code, filename) => {
-      const ext = path.extname(filename);
-      if (!isImageExtension(ext)) throw new Error(`Expected ${filename} to be an image file, but got ${ext}`);
+      const ext = /** @type {keyof typeof mimeTypes} */ (path.extname(filename));
       const buffer = readFileSync(filename);
       const { width, height } = sizeOf.default(buffer);
       return `module.exports = ${JSON.stringify({
