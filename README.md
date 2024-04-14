@@ -1,6 +1,6 @@
 # @mizdra/node-next-image-loader
 
-The Node.js Loader like next-image-loader
+The Node.js Loader (Customization Hook) like next-image-loader
 
 ## Usage
 

@@ -1,6 +1,6 @@
 {
   "name": "@mizdra/node-next-image-loader",
-  "description": "The Node.js Loader like next-image-loader",
+  "description": "The Node.js Loader (Customization Hook) like next-image-loader",
   "version": "0.2.0",
   "type": "module",
   "sideEffects": false,
