@@ -3,7 +3,7 @@
   "description": "The Node.js Loader (Customization Hook) like next-image-loader",
   "version": "0.2.0",
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": true,
   "repository": "https://github.com/mizdra/@mizdra/node-next-image-loader.git",
   "author": "mizdra <pp.mizdra@gmail.com>",
   "license": "MIT",
